@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="globalStyle.css"/>
+        <style> 
+            #black {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: #242f3f;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="background">
+            <div>
+                <h2>hi</h2>
+                <div>aaaa as&minus;a</div>
+            </div>
+        </div>
+        <div id="black">
+            <span class="loader"><span class="loader-inner"></span></span>
+        </div>
+        <script>
+            let mousePos = { x: undefined, y: undefined };
+            var height = document.body.clientHeight;
+            var width = document.body.clientWidth;
+
+            window.addEventListener('mousemove', (event) => {
+                mousePos = { x: event.clientX, y: event.clientY };
+                height2 = ((event.clientY)/height * 100);
+                width2 = ((event.clientX)/width * 100);
+                document.getElementById("background").style.backgroundPositionX = width2 + "%"; 
+                document.getElementById("background").style.backgroundPositionY = height2 + "%";           
+            });
+        </script>
+        <style>
+            #black {
+                -webkit-animation: load-out 2s ease-in-out;
+                animation: load-out 2s ease-in-out;
+                -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+            }
+            
+            @-webkit-keyframes load-out {
+                from {
+                    background-color: rgba(0,0,0,1);
+                    opacity: 1;
+                    visibility: visible;
+                }
+            
+                to {
+                    background-color: rgba(0,0,0,0);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+            
+            @keyframes load-out {
+                from {
+                    background-color: rgba(0,0,0,1);
+                    opacity: 1;
+                    visibility: visible;
+                }
+            
+                to {
+                    background-color: rgba(0,0,0,0);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+        </style>
+    </body>
+</html>
